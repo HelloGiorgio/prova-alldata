@@ -536,7 +536,7 @@
     S.metafields.forEach((m) => { const v = p.attrs[m.key]; if (v != null) rows.push([m.label, Array.isArray(v) ? v.join(', ') : String(v)]); });
     const table = h('table', { class: 'specs' }, h('caption', null, 'Specifiche tecniche ', ex()), h('thead', null, h('tr', null, h('th', { scope: 'col', text: 'Caratteristica' }), h('th', { scope: 'col' }, 'Valore ', ex()))),
       h('tbody', null, rows.map((r) => h('tr', null, h('th', { scope: 'row', text: r[0] }), h('td', { text: r[1] })))));
-    const docs = h('ul', { class: 'docs' }, p.docs.map((d) => h('li', null, h('a', { class: 'doc', download: slug(d.label) + '-' + p.code.toLowerCase() + '.txt', href: 'data:text/plain;charset=utf-8,' + encodeURIComponent('DOCUMENTO SEGNAPOSTO (ESEMPIO)\n' + d.label + ' per ' + p.title + '\nNon è un documento reale.') }, d.label + ' (PDF) ', ex()))));
+    const docs = h('ul', { class: 'docs' }, p.docs.map((d) => h('li', null, h('button', { type: 'button', class: 'linklike', onclick: () => toast('Documento segnaposto: il download non è simulato nell\'anteprima.') }, d.label + ' (PDF) ', ex()))));
     main.appendChild(shp('section', { name: 'collapsible-content', label: 'Specifiche, documenti, assistenza', goal: 'Blocchi a comparsa: specifiche da metafield, documenti da metafield di tipo file, assistenza.', cls: 'container' },
       h('details', { class: 'acc', open: true }, h('summary', { text: 'Specifiche tecniche' }), table, devNote('Le righe derivano dai metafield del prodotto (namespace custom). Tabella con blocco Custom liquid o Rich text del tema, da verificare.')),
       h('details', { class: 'acc', open: true }, h('summary', { text: 'Documenti scaricabili' }), docs, devNote('Metafield di tipo File: scheda_tecnica, manuale_utente, dichiarazione_conformita.')),
@@ -615,7 +615,7 @@
     } else if (L === 'qualita') {
       main.appendChild(shp('section', { name: 'rich-text', label: 'Politica qualità', goal: 'Politica qualità come testo indicizzabile. Il PDF diventa un allegato scaricabile.', cls: 'container prose' }, exNote(),
         h('h2', { text: 'Politica qualità' }), h('p', { text: 'Testo di esempio: qui va la sintesi della politica qualità di ALLdata, attiva dal 1980 nella fornitura di strumentazione per elettronica e ingegneria.' }),
-        h('p', null, h('a', { class: 'btn btn--ghost', download: 'politica-qualita-esempio.txt', href: 'data:text/plain;charset=utf-8,' + encodeURIComponent('DOCUMENTO SEGNAPOSTO (ESEMPIO). Il PDF reale della politica qualità: URL da verificare.') }, 'Scarica la politica qualità (PDF, file reale da verificare)')),
+        h('p', null, h('button', { type: 'button', class: 'btn btn--ghost', onclick: () => toast('Documento segnaposto: il PDF reale è da verificare.') }, 'Scarica la politica qualità (PDF, file reale da verificare)')),
         devNote('Pagina con template dedicato. Il PDF resta nella libreria file e viene collegato dal testo. Il menu Azienda punta a questa pagina e non al PDF.')));
       main.appendChild(shp('section', { name: 'multicolumn', label: 'Certificazioni', goal: 'Elenco certificazioni con estremi da verificare.', cls: 'container' }, heading('Certificazioni'),
         h('div', { class: 'cols' }, [1, 2, 3].map((n) => h('div', { class: 'col col--static' }, h('h3', null, 'Certificazione ' + n + ' ', ex()), h('p', { text: 'Ente, norma e numero: da verificare.' }))))));
