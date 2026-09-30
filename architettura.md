@@ -85,7 +85,7 @@ Solo menu standard di Shopify (Contenuti, Menu). Massimo 3 livelli per menu.
 | Livello 1 | Livello 2 | Livello 3 | Note |
 |---|---|---|---|
 | **Prodotti** (mega menu) | le 6 categorie | le sottocategorie | Link su `/collections/all` oppure alla pagina indice. Vedi 2.4. |
-| Marchi | Indice marchi, poi i 12 marchi | nessuno | Dropdown semplice. |
+| Marchi (link alla pagina Marchi) | i 12 marchi | nessuno | Dropdown semplice. |
 | Servizi | Assistenza, System integration, Formazione, Installazione, Calibrazione | nessuno | Link a `/pages/servizi#ancora`. |
 | Settori | Difesa, Aerospazio, Energia, Ricerca | nessuno | Link a `/pages/settori#ancora`. |
 | Risorse | Guide tecniche, News & Eventi | nessuno | Blog. |
@@ -132,7 +132,7 @@ Legenda condizioni smart: tutte devono essere soddisfatte quando indicato "E" ("
 
 Perché: un solo nome e un solo handle per area (R1, I1). Gli handle già corretti restano per non creare redirect inutili.
 
-### 3.2 Sottocategorie (16, smart)
+### 3.2 Sottocategorie (19, smart)
 
 | Titolo | Handle | Regola |
 |---|---|---|
